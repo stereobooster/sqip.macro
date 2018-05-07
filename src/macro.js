@@ -1,26 +1,25 @@
 const path = require("path");
-const lqip = require("lqip");
+const { execSync } = require("child_process");
+
 const { createMacro } = require("babel-plugin-macros");
 
 export default createMacro(lqipMacros);
 
-async function lqipMacros({ references, state, babel }) {
-  await Promise.all(
-    references.default.map(async referencePath => {
-      if (referencePath.parentPath.type === "CallExpression") {
-        await requirelqip({ referencePath, state, babel });
-      } else {
-        throw new Error(
-          `This is not supported: \`${referencePath
-            .findParent(babel.types.isExpression)
-            .getSource()}\`. Please see the lqip.macro documentation`,
-        );
-      }
-    }),
-  );
+function lqipMacros({ references, state, babel }) {
+  references.default.map(referencePath => {
+    if (referencePath.parentPath.type === "CallExpression") {
+      requirelqip({ referencePath, state, babel });
+    } else {
+      throw new Error(
+        `This is not supported: \`${referencePath
+          .findParent(babel.types.isExpression)
+          .getSource()}\`. Please see the lqip.macro documentation`,
+      );
+    }
+  });
 }
 
-async function requirelqip({ referencePath, state, babel }) {
+function requirelqip({ referencePath, state, babel }) {
   const filename = state.file.opts.filename;
   const t = babel.types;
   const callExpressionPath = referencePath.parentPath;
@@ -41,9 +40,23 @@ async function requirelqip({ referencePath, state, babel }) {
   }
 
   const fullPath = path.resolve(dirname, lqipPath);
-  const fileContent = await lqip.base64(fullPath);
+  let fileContent;
+  try {
+    fileContent = syncLqip(fullPath);
+  } catch (err) {
+    throw new Error(
+      `There was a problem getting lqip for: ${lqipPath}. ` +
+        `Unsupported image format`,
+    );
+  }
 
   referencePath.parentPath.replaceWith(
     t.expressionStatement(t.stringLiteral(fileContent)),
   );
+}
+
+function syncLqip(path) {
+  return execSync("node src/lqip.js " + path, { shell: false })
+    .toString("utf8")
+    .trim();
 }

@@ -1,12 +1,10 @@
 {
   "name": "lqip.macro",
   "description": "Cretes LQIP at build time, similar to webpack lqip-loader",
-  "version": "0.1.1",
-  "main": "dist/lqip.macro.js",
+  "version": "0.1.2",
+  "main": "src/index.js",
   "license": "MIT",
-  "files": [
-    "dist/"
-  ],
+  "files": ["src/index.js", "src/macro.js", "src/lqip.js"],
   "keywords": [
     "webpack",
     "lqip-loader",
@@ -22,7 +20,6 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "build": "microbundle -i src/index.js -o dist",
     "format": "prettier --write",
     "ci": "npm run test -- --ci && npm run build",
     "prepare": "npm run build",
@@ -37,7 +34,6 @@
     "babel-plugin-tester": "^5.0.0",
     "babel-preset-env": "^1.6.1",
     "jest": "^22.3.0",
-    "microbundle": "^0.4.3",
     "prettier": "^1.10.2",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0"
@@ -46,9 +42,6 @@
     "testRegex": "__tests__/.*.test.js$"
   },
   "lint-staged": {
-    "*.{js,md}": [
-      "prettier --write",
-      "git add -A"
-    ]
+    "*.{js,md}": ["prettier --write", "git add -A"]
   }
 }
