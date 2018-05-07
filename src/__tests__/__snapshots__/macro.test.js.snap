@@ -2,23 +2,20 @@
 
 exports[`macros correct usage: correct usage 1`] = `
 "
-import raw from '../macro';
+import lqip from '../macro';
 
-const md = raw('./fixtures/markdown.md');
-const js = raw('./fixtures/javascript.js');
+const preview = lqip('./fixtures/jonathan-daniels-416786-unsplash.jpg');
 
       ↓ ↓ ↓ ↓ ↓ ↓
 
-const md = \\"# This is the title\\\\n\\\\nThis is the description\\\\n\\";
-const js =
-  'const sum = require(\\"../sum\\");\\\\n\\\\ntest(\\"add two numbers\\", () => {\\\\n  const result = sum(1, 2);\\\\n  expect(result).toEqual(3);\\\\n});\\\\n';
+const preview = 'data:image/jpeg;base64,/9j/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAJAA4DASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwYH/8QAJxAAAQMCBQIHAAAAAAAAAAAAAQIDBAAFBhESITEHsTQ2QUJyc4H/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/EABgRAAMBAQAAAAAAAAAAAAAAAAABAhEh/9oADAMBAAIRAxEAPwCB6ZxbDcHn2MUGSvVk3GZbUW06iFHUpQzIyyAGx54ocdYMuWHC3IS067ZpSyYj5IGsb7KHtUB6fop5vio/yHcVrV98m2/7R2XS+UQpTnD/2Q==';
 
 "
 `;
 
 exports[`macros no usage: no usage 1`] = `
 "
-import raw from '../macro'
+import lqip from '../macro'
 
       ↓ ↓ ↓ ↓ ↓ ↓
 

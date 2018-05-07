@@ -13,12 +13,16 @@ pluginTester({
     return prettier.format(result, { trailingComma: "es5" });
   },
   tests: {
-    "no usage": `import raw from '../macro'`,
+    "no usage": `import lqip from '../macro'`,
     "correct usage": `
-      import raw from '../macro';
+      import lqip from '../macro';
 
-      const md = raw('./fixtures/markdown.md');
-      const js = raw('./fixtures/javascript.js');
+      const preview = lqip('./fixtures/jonathan-daniels-416786-unsplash.jpg');
     `,
+    // "correct usage, wrong file": `
+    //   import lqip from '../macro';
+
+    //   const preview = lqip('./fixtures/readme.md');
+    // `,
   },
 });
