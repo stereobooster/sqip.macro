@@ -1,3 +1,5 @@
+**This is placeholder, plugin doesn't work.**
+
 # lqip.macro
 
 [![Build Status](https://travis-ci.org/stereobooster/lqip.macro.svg?branch=master)](https://travis-ci.org/stereobooster/lqip.macro) [![Babel Macro](https://img.shields.io/badge/babel--macro-%F0%9F%8E%A3-f5da55.svg?style=flat-square)](https://github.com/kentcdodds/babel-plugin-macros) [![Greenkeeper badge](https://badges.greenkeeper.io/stereobooster/lqip.macro.svg)](https://greenkeeper.io/)
