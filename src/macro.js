@@ -56,7 +56,7 @@ function requirelqip({ referencePath, state, babel }) {
 }
 
 function syncLqip(path) {
-  return execSync("node src/lqip.js " + path, { shell: false })
+  return execSync("node " + __dirname + "/lqip.js " + path, { shell: false })
     .toString("utf8")
     .trim();
 }
