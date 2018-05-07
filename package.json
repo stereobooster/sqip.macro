@@ -1,7 +1,7 @@
 {
   "name": "lqip.macro",
   "description": "Cretes LQIP at build time, similar to webpack lqip-loader",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "src/index.js",
   "license": "MIT",
   "files": ["src/index.js", "src/macro.js", "src/lqip.js"],
@@ -21,8 +21,7 @@
   "scripts": {
     "test": "jest --coverage",
     "format": "prettier --write",
-    "ci": "npm run test -- --ci && npm run build",
-    "prepare": "npm run build",
+    "ci": "npm run test -- --ci",
     "precommit": "lint-staged"
   },
   "dependencies": {
