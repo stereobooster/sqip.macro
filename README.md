@@ -14,6 +14,25 @@ import lqip from "lqip.macro";
 const preview = lqip("./image.jpg");
 ```
 
+### Example of usage in create-react-app
+
+```js
+import coverImage from "./cover-image.jpg";
+import lqip from "lqip.macro";
+const coverLqip = lqip("./cover-image.jpg");
+
+const SomeComponent = () => (
+  <div
+    style={{
+      backgroundImage: `url(${coverLqip}`,
+      backgroundSize: "cover",
+      backgroundRepeat: "no-repeat"
+    }}>
+    <img src={coverImage} alt="" width="100%" height="100%"/>
+  </div>
+);
+```
+
 ## Credits
 
 Based on [pveyes/raw.macro](https://github.com/pveyes/raw.macro).
