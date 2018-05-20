@@ -1,14 +1,16 @@
 {
-  "name": "lqip.macro",
-  "description": "Cretes LQIP at build time, similar to webpack lqip-loader",
-  "version": "0.1.5",
-  "main": "dist/lqip.macro.js",
+  "name": "sqip.macro",
+  "description": "Cretes sqip at build time, similar to webpack sqip-loader",
+  "version": "0.1.0",
+  "main": "dist/sqip.macro.js",
   "license": "MIT",
-  "files": ["dist/"],
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "webpack",
-    "lqip-loader",
-    "lqip",
+    "sqip-loader",
+    "sqip",
     "string",
     "babel",
     "babel-macros",
@@ -16,34 +18,38 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stereobooster/lqip.macro.git"
+    "url": "git+https://github.com/stereobooster/sqip.macro.git"
   },
   "scripts": {
     "test": "jest --coverage",
     "format": "prettier --write",
     "ci": "npm run test -- --ci && npm run build",
     "prepare": "npm run build",
-    "build": "microbundle -i src/index.js -o dist && cp src/lqip.js dist/lqip.js",
+    "build": "microbundle -i src/index.js -o dist",
     "precommit": "lint-staged"
   },
   "dependencies": {
     "babel-plugin-macros": "^2.2.1",
-    "lqip": "^2.0.2"
+    "mini-svg-data-uri": "^1.0.0",
+    "sqip": "^0.3.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-plugin-tester": "^5.0.0",
     "babel-preset-env": "^1.6.1",
-    "jest": "^22.3.0",
-    "prettier": "^1.10.2",
     "husky": "^0.14.3",
+    "jest": "^22.3.0",
     "lint-staged": "^7.0.0",
-    "microbundle": "^0.4.3"
+    "microbundle": "^0.4.3",
+    "prettier": "^1.10.2"
   },
   "jest": {
     "testRegex": "__tests__/.*.test.js$"
   },
   "lint-staged": {
-    "*.{js,md}": ["prettier --write", "git add -A"]
+    "*.{js,md}": [
+      "prettier --write",
+      "git add -A"
+    ]
   }
 }
