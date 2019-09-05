@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "babel-core": "6.26.0",
-    "babel-plugin-tester": "5.0.0",
+    "babel-plugin-tester": "7.0.1",
     "babel-preset-env": "1.6.1",
     "husky": "0.14.3",
     "jest": "22.3.0",
